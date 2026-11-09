@@ -1,0 +1,7 @@
+[Unit]
+Description=Alerte echec %i
+
+[Service]
+Type=oneshot
+EnvironmentFile=/opt/payslips/.env
+ExecStart=/bin/sh -c 'logger -t payslips "echec de %i"; [ -z "$NOTIFY_URL" ] || curl -fsS -m 20 -X POST -H "Title: payslips en echec" -H "Priority: high" -d "payslips: echec sur $(hostname) - journalctl -u payslips" "$NOTIFY_URL"'

@@ -1,0 +1,11 @@
+[Unit]
+Description=Fiches de paie : du 1er au 8 du mois, 2 fois par jour
+
+[Timer]
+# Les bulletins arrivent entre le 1er et le 7 du mois (mail "Vous avez recu un nouveau document").
+OnCalendar=*-*-01..08 08:30
+OnCalendar=*-*-01..08 14:30
+Persistent=true
+
+[Install]
+WantedBy=timers.target

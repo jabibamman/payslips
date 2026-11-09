@@ -1,0 +1,12 @@
+[Unit]
+Description=Fiches de paie vers Drive
+Wants=network-online.target
+After=network-online.target
+OnFailure=payslips-fail@%n.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/payslips
+Environment=RCLONE_CONFIG=/opt/payslips/rclone.conf
+ExecStart=/opt/payslips/run.sh
+TimeoutStartSec=15min

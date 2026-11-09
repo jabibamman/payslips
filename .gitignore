@@ -1,0 +1,12 @@
+.env
+state.json
+out/
+debug/
+.venv/
+__pycache__/
+out-test/
+rclone.conf
+out-test/
+*.pdf
+.pytest_cache/
+.DS_Store
